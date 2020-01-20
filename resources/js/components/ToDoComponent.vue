@@ -6,7 +6,7 @@
 
                     <span v-if="!task.isEdit">
                         <input type="checkbox" :checked="task.isComplete" class="mr-2" @click="markTaskComplete(task)" >
-                        <span v-if="!task.isComplete" @click="editTaskName(task)">{{ task.taskName }}</span>
+                        <span v-if="!task.isComplete" class="pointer" @click="editTaskName(task)">{{ task.taskName }}</span>
                          <del v-if="task.isComplete" > {{ task.taskName }}</del>
                     </span>
                     <span v-if="task.isEdit" class="d-flex">
@@ -14,17 +14,17 @@
                          <input type="text" class="form-control" :value="task.taskName" @keyup.enter="updateTaskName(task,$event)" >
                     </span>
 
-                    <span class="badge badge-primary badge-pill" @click="deleteTask(task.id)">X</span>
+                    <span class="badge badge-primary badge-pill pointer" @click="deleteTask(task.id)">X</span>
             </li>
         </ul>
         <div v-if="taskList.length > 0" class="row mt-2">
             <div class="col-md-3"><label class="float-left">{{ taskList.length }} items left</label></div>
                 <div class="col-md-5">
-                    <Button class="btn btn-sm" :class="allListButton ? 'btn-info' : ''" @click="changeTaskListByStatus(1)">All</Button>
-                    <Button class="btn btn-sm" :class="activeListButton ? 'btn-info' : ''" @click="changeTaskListByStatus(2)">Active</Button>
-                    <Button class="btn btn-sm" :class="completedListButton ? 'btn-info' : ''" @click="changeTaskListByStatus(3)">Completed</Button>
+                    <Button type="button" class="btn btn-sm pointer" :class="allListButton ? 'btn-info' : ''" @click="changeTaskListByStatus(1)">All</Button>
+                    <Button type="button" class="btn btn-sm pointer" :class="activeListButton ? 'btn-info' : ''" @click="changeTaskListByStatus(2)">Active</Button>
+                    <Button type="button" class="btn btn-sm pointer" :class="completedListButton ? 'btn-info' : ''" @click="changeTaskListByStatus(3)">Completed</Button>
                 </div>
-                <div class="col-md-4"><button class="btn btn-sm float-right" v-show="totalCompletedTask() > 0" @click="clearAllTask()">Clear Completed</button></div>
+                <div class="col-md-4"><button type="button" class="btn btn-sm float-right pointer" v-show="totalCompletedTask() > 0" @click="clearAllTask()">Clear Completed</button></div>
         </div>
 
     </div>

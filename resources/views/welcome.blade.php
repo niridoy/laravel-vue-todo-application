@@ -63,6 +63,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .pointer{
+                cursor: pointer;
+            }
 
         </style>
     </head>
@@ -71,7 +74,7 @@
 
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md mt-5">
                    To do Application
                 </div>
                <toto-application></toto-application>

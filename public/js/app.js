@@ -19738,6 +19738,7 @@ var render = function() {
                         ? _c(
                             "span",
                             {
+                              staticClass: "pointer",
                               on: {
                                 click: function($event) {
                                   return _vm.editTaskName(task)
@@ -19796,7 +19797,7 @@ var render = function() {
                 _c(
                   "span",
                   {
-                    staticClass: "badge badge-primary badge-pill",
+                    staticClass: "badge badge-primary badge-pill pointer",
                     on: {
                       click: function($event) {
                         return _vm.deleteTask(task.id)
@@ -19827,8 +19828,9 @@ var render = function() {
               _c(
                 "Button",
                 {
-                  staticClass: "btn btn-sm",
+                  staticClass: "btn btn-sm pointer",
                   class: _vm.allListButton ? "btn-info" : "",
+                  attrs: { type: "button" },
                   on: {
                     click: function($event) {
                       return _vm.changeTaskListByStatus(1)
@@ -19841,8 +19843,9 @@ var render = function() {
               _c(
                 "Button",
                 {
-                  staticClass: "btn btn-sm",
+                  staticClass: "btn btn-sm pointer",
                   class: _vm.activeListButton ? "btn-info" : "",
+                  attrs: { type: "button" },
                   on: {
                     click: function($event) {
                       return _vm.changeTaskListByStatus(2)
@@ -19855,8 +19858,9 @@ var render = function() {
               _c(
                 "Button",
                 {
-                  staticClass: "btn btn-sm",
+                  staticClass: "btn btn-sm pointer",
                   class: _vm.completedListButton ? "btn-info" : "",
+                  attrs: { type: "button" },
                   on: {
                     click: function($event) {
                       return _vm.changeTaskListByStatus(3)
@@ -19881,7 +19885,8 @@ var render = function() {
                     expression: "totalCompletedTask() > 0"
                   }
                 ],
-                staticClass: "btn btn-sm float-right",
+                staticClass: "btn btn-sm float-right pointer",
+                attrs: { type: "button" },
                 on: {
                   click: function($event) {
                     return _vm.clearAllTask()
