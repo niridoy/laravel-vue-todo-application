@@ -72,7 +72,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   Todos Application
+                   To do Application
                 </div>
                <toto-application></toto-application>
             </div>
