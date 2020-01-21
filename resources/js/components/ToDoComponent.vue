@@ -94,18 +94,22 @@ export default {
         changeTaskListByStatus(status){
 
             if(status == 2){
+                this.editableOptionResset();
                 this.showTaskList =  this.taskList.filter(task => task.isComplete == false);
                 this.allListButton = false;
                 this.activeListButton = true;
                 this.completedListButton = false;
+
             }else if(status == 3){
+                 this.editableOptionResset();
                 this.showTaskList = this.taskList.filter(task => task.isComplete == true);
                 this.allListButton = false;
                 this.activeListButton = false;
                 this.completedListButton = true;
             }else{
-                 this.showTaskList = this.taskList;
-                  this.allListButton = true;
+                 this.editableOptionResset();
+                this.showTaskList = this.taskList;
+                this.allListButton = true;
                 this.activeListButton = false;
                 this.completedListButton = false;
             }
@@ -125,6 +129,12 @@ export default {
         clearAllTask(){
              this.taskList  = this.taskList.filter(task => task.isComplete !== true);
              Fire.$emit('changedTaskList');
+        },
+
+        editableOptionResset(){
+             this.showTaskList = this.taskList.map(task => {
+                return task.isEdit = false;
+            });
         },
 
         updateTaskObject(updateTask){

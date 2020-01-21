@@ -2021,6 +2021,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     changeTaskListByStatus: function changeTaskListByStatus(status) {
       if (status == 2) {
+        this.editableOptionResset();
         this.showTaskList = this.taskList.filter(function (task) {
           return task.isComplete == false;
         });
@@ -2028,6 +2029,7 @@ __webpack_require__.r(__webpack_exports__);
         this.activeListButton = true;
         this.completedListButton = false;
       } else if (status == 3) {
+        this.editableOptionResset();
         this.showTaskList = this.taskList.filter(function (task) {
           return task.isComplete == true;
         });
@@ -2035,6 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
         this.activeListButton = false;
         this.completedListButton = true;
       } else {
+        this.editableOptionResset();
         this.showTaskList = this.taskList;
         this.allListButton = true;
         this.activeListButton = false;
@@ -2056,6 +2059,11 @@ __webpack_require__.r(__webpack_exports__);
         return task.isComplete !== true;
       });
       Fire.$emit('changedTaskList');
+    },
+    editableOptionResset: function editableOptionResset() {
+      this.showTaskList = this.taskList.map(function (task) {
+        return task.isEdit = false;
+      });
     },
     updateTaskObject: function updateTaskObject(updateTask) {
       var index = this.taskList.findIndex(function (task) {
